@@ -1,8 +1,7 @@
-# 100-days-of-swiftui
+# 100-days-of-swiftui <img src="./Assets/swiftui-badge.png" width="88px" />
 
 
 <p align="center">
-  <img src="./Assets/swiftui-badge.png" width="88px" />
   <a href="https://developer.apple.com/swift/" target="_blank">
     <img src="https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat" alt="Swift 5.0">
   </a>
