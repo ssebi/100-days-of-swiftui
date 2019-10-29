@@ -71,7 +71,7 @@ struct ContentView: View {
 - There's normally a small issue here when trying to change the value of a property inside a struct. In order to do that we would have to type the word *mutating* but that doesn't apply to computed properties. So we have to use something new, a `PropertyWrapper` called `@State`. Then our code compiles and we can change the value of the property.
 
 # Binding state to user interface controls
-- Some controls require `two-way bindings` which means they also  need to be able to write back to the property, not just read its value. That's because it needs to make sure the right state is always saved in the property. In order to do that, we need to prefix the property with `&`. Take, for example a `TextField` control:
+- Some controls require `two-way bindings` which means they also  need to be able to write back to the property, not just read its value. That's because it needs to make sure the right state is always saved in the property. In order to do that, we need to prefix the property with `$`. Take, for example a `TextField` control:
 
 ```swift
 struct ContentView: View {
