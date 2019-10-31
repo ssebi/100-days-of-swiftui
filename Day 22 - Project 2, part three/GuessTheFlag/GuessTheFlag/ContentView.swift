@@ -64,17 +64,16 @@ struct ContentView: View {
     private func flagTapped(_ number: Int) {
         if number == correctAnswer {
             score += 1
-            scoreTitle = "Correct"
-            message = "Your score is \(score)"
+
+            askQuestion()
         } else {
             if score >= 1 {
                 score -= 1
             }
             scoreTitle = "Wrong"
-            message = "Your score is \(score)"
+            message = "That's the flag of \(countries[number])"
+            showingScore = true
         }
-
-        showingScore = true
     }
 
     private func askQuestion() {
