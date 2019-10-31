@@ -44,6 +44,13 @@ struct ContentView: View {
                     }
                 }
 
+                VStack {
+                    Text("Your Score")
+                    Text("\(score)")
+                }
+                .font(.headline)
+                .foregroundColor(.white)
+
                 Spacer()
             }
         }
