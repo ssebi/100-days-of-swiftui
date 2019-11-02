@@ -17,6 +17,9 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
 
+    @State private var score = 0
+    @State private var extraPointsForUsedWordsCount = 0
+
     var body: some View {
         NavigationView {
             VStack {
@@ -29,6 +32,8 @@ struct ContentView: View {
                     Image(systemName: "\($0.count).circle")
                     Text($0)
                 }
+
+                Text("Your score is \(score + extraPointsForUsedWordsCount)")
             }
             .navigationBarItems(leading: Button("Reset", action: startGame))
             .navigationBarTitle(rootWord)
@@ -70,6 +75,29 @@ struct ContentView: View {
 
         usedWords.insert(answer, at: 0)
         newWord = ""
+        calculateScore(for: answer)
+    }
+
+    func calculateScore(for answer: String) {
+        switch answer.count {
+            case 3...5:
+                score += 1
+            case 6:
+                score += 2
+            case 6...:
+                score += 3
+            default: break
+        }
+
+        switch usedWords.count {
+            case 1...3:
+                extraPointsForUsedWordsCount = 2
+            case 4...5:
+                extraPointsForUsedWordsCount = 3
+            case 6...:
+                extraPointsForUsedWordsCount = 4
+            default: break
+        }
     }
 
     func startGame() {
