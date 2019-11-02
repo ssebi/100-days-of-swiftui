@@ -14,6 +14,7 @@
 		9E2205A0235F7186005AAF6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E22059F235F7186005AAF6C /* Preview Assets.xcassets */; };
 		9E2205A3235F7186005AAF6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2205A1235F7186005AAF6C /* LaunchScreen.storyboard */; };
 		9E2205AB235F773E005AAF6C /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9E2205AA235F773E005AAF6C /* SleepCalculator.mlmodel */; };
+		9E8AB509236D9C440092EFCC /* SelectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8AB508236D9C440092EFCC /* SelectionStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9E2205A2235F7186005AAF6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E2205A4235F7186005AAF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E2205AA235F773E005AAF6C /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
+		9E8AB508236D9C440092EFCC /* SelectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				9E220596235F7184005AAF6C /* AppDelegate.swift */,
 				9E220598235F7184005AAF6C /* SceneDelegate.swift */,
 				9E22059A235F7184005AAF6C /* ContentView.swift */,
+				9E8AB508236D9C440092EFCC /* SelectionStore.swift */,
 				9E22059C235F7186005AAF6C /* Assets.xcassets */,
 				9E2205A1235F7186005AAF6C /* LaunchScreen.storyboard */,
 				9E2205A4235F7186005AAF6C /* Info.plist */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E220597235F7184005AAF6C /* AppDelegate.swift in Sources */,
+				9E8AB509236D9C440092EFCC /* SelectionStore.swift in Sources */,
 				9E220599235F7184005AAF6C /* SceneDelegate.swift in Sources */,
 				9E2205AB235F773E005AAF6C /* SleepCalculator.mlmodel in Sources */,
 				9E22059B235F7184005AAF6C /* ContentView.swift in Sources */,
