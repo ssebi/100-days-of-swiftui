@@ -30,6 +30,7 @@ struct ContentView: View {
                     Text($0)
                 }
             }
+            .navigationBarItems(leading: Button("Reset", action: startGame))
             .navigationBarTitle(rootWord)
         }
         .onAppear(perform: startGame)
