@@ -17,7 +17,8 @@ struct ContentView: View {
     @State private var score = 0
 
     @State private var animationAmount = 0.0
-    private let animationDuration = 0.5
+    @State private var animationOpacity = 1.0
+    private let animationDuration = 1.0
 
     var body: some View {
         ZStack {
@@ -42,6 +43,7 @@ struct ContentView: View {
                         FlagImage(imageName: self.countries[number])
                     }
                     .rotation3DEffect(.degrees(self.isCorrect(number) ? self.animationAmount : 0.0), axis: (x: 0, y: 1, z: 0))
+                    .opacity(self.isCorrect(number) ? 1.0 : self.animationOpacity)
                 }
 
                 VStack {
@@ -70,10 +72,14 @@ struct ContentView: View {
             score += 1
 
             withAnimation(.easeOut(duration: animationDuration)) {
-                 self.animationAmount += 360
+                self.animationAmount += 360
+                self.animationOpacity = 0.25
             }
+
+            /// Would be nice to get rid of this 
             DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
                 self.askQuestion()
+                self.animationOpacity = 1.0
             }
         } else {
             if score >= 1 {
