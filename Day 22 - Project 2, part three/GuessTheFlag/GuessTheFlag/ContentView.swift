@@ -9,15 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingScore = false
-    @State private var scoreTitle = ""
-    @State private var message = ""
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var score = 0
 
     @State private var animationAmount = 0.0
     @State private var animationOpacity = 1.0
+    @State private var wrongAttempts: CGFloat = 1.0
     private let animationDuration = 1.0
 
     var body: some View {
@@ -44,6 +42,7 @@ struct ContentView: View {
                     }
                     .rotation3DEffect(.degrees(self.isCorrect(number) ? self.animationAmount : 0.0), axis: (x: 0, y: 1, z: 0))
                     .opacity(self.isCorrect(number) ? 1.0 : self.animationOpacity)
+                    .modifier(Shake(animatableData: self.isCorrect(number) ? CGFloat() : self.wrongAttempts))
                 }
 
                 VStack {
@@ -55,11 +54,6 @@ struct ContentView: View {
 
                 Spacer()
             }
-        }
-        .alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text(message), dismissButton: .default(Text("Continue")) {
-                self.askQuestion()
-                })
         }
     }
 
@@ -76,7 +70,7 @@ struct ContentView: View {
                 self.animationOpacity = 0.25
             }
 
-            /// Would be nice to get rid of this 
+            /// Would be nice to get rid of this
             DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
                 self.askQuestion()
                 self.animationOpacity = 1.0
@@ -85,9 +79,9 @@ struct ContentView: View {
             if score >= 1 {
                 score -= 1
             }
-            scoreTitle = "Wrong"
-            message = "That's the flag of \(countries[number])"
-            showingScore = true
+            withAnimation {
+                self.wrongAttempts += 1
+            }
         }
     }
 
@@ -96,6 +90,17 @@ struct ContentView: View {
         correctAnswer = Int.random(in: 0...2)
     }
 
+}
+
+struct Shake: GeometryEffect {
+    var amount: CGFloat = 10
+    var shakesPerUnit = 3
+    var animatableData: CGFloat
+
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        ProjectionTransform(CGAffineTransform(translationX:
+            amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)), y: 0))
+    }
 }
 
 struct FlagImage: View {
