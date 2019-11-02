@@ -16,6 +16,9 @@ struct ContentView: View {
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var score = 0
 
+    @State private var animationAmount = 0.0
+    private let animationDuration = 0.5
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom)
@@ -38,6 +41,7 @@ struct ContentView: View {
                     }) {
                         FlagImage(imageName: self.countries[number])
                     }
+                    .rotation3DEffect(.degrees(self.isCorrect(number) ? self.animationAmount : 0.0), axis: (x: 0, y: 1, z: 0))
                 }
 
                 VStack {
@@ -57,11 +61,20 @@ struct ContentView: View {
         }
     }
 
+    private func isCorrect(_ number: Int) -> Bool {
+        return number == self.correctAnswer
+    }
+
     private func flagTapped(_ number: Int) {
         if number == correctAnswer {
             score += 1
 
-            askQuestion()
+            withAnimation(.easeOut(duration: animationDuration)) {
+                 self.animationAmount += 360
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+                self.askQuestion()
+            }
         } else {
             if score >= 1 {
                 score -= 1
