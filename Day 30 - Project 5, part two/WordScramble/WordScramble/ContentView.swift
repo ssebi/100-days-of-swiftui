@@ -57,6 +57,11 @@ struct ContentView: View {
             return
         }
 
+        guard isNotTheSameWord(word: answer) else {
+            wordError(title: "Word is the same", message: "You can't use the same word")
+            return
+        }
+
         guard isReal(word: answer) else {
             wordError(title: "Word not possible", message: "That isn't a real word.")
             return
@@ -104,8 +109,13 @@ struct ContentView: View {
         return true
     }
 
-    func isReal(word: String) -> Bool {
+    func isNotTheSameWord(word: String) -> Bool {
         guard word != rootWord else { return false }
+        return true
+    }
+
+    func isReal(word: String) -> Bool {
+        guard word.count > 2 else { return false }
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
