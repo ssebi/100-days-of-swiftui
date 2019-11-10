@@ -31,13 +31,12 @@ struct ContentView: View {
                 .onDelete(perform: removeItems)
             }
             .navigationBarTitle("iExpense")
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading: EditButton(), trailing:
                 Button(action: {
                     self.showingAddExpense = true
-                }) {
-                    Image(systemName: "plus")
-                }
-            )
+            }) {
+                Image(systemName: "plus")
+            })
             .sheet(isPresented: $showingAddExpense) {
                 AddView(expenses: self.expenses)
             }
