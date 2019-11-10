@@ -26,6 +26,7 @@ struct ContentView: View {
 
                         Spacer()
                         Text("$\(item.amount)")
+                            .foregroundColor(item.foregroundColor)
                     }
                 }
                 .onDelete(perform: removeItems)
