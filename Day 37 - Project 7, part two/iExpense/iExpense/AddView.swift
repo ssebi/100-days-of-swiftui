@@ -19,6 +19,9 @@ struct AddView: View {
 
     static let types = ["Business", "Personal"]
 
+    @State private var isShowingAlert = false
+    @State private var alertMessage = Text("That's not a valid number")
+
     var body: some View {
         NavigationView {
             Form {
@@ -33,12 +36,17 @@ struct AddView: View {
             }
             .navigationBarTitle("Add new expense")
             .navigationBarItems(trailing: Button("Save") {
-                if let actualAmount = Int(self.amount) {
+                if let actualAmount = Int(self.amount), actualAmount > 0 {
                     let item = ExpenseItem(name: self.name, type: self.type, amount: actualAmount)
                     self.expenses.items.append(item)
                     self.presentationMode.wrappedValue.dismiss()
+                } else {
+                    self.isShowingAlert.toggle()
                 }
             })
+                .alert(isPresented: $isShowingAlert) {
+                    Alert(title: Text("Error"), message: alertMessage, dismissButton: .default(Text("OK")))
+            }
         }
     }
 }
