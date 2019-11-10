@@ -12,6 +12,8 @@ struct ContentView: View {
     let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
 
+    @State private var isShowingCrew = false
+
     var body: some View {
         NavigationView {
             List(missions) { mission in
@@ -24,12 +26,28 @@ struct ContentView: View {
                     VStack(alignment: .leading) {
                         Text(mission.displayName)
                             .font(.headline)
-                        Text(mission.formattedLaunchDate)
+                        Text(self.isShowingCrew ? self.crewMemberNames(forMission: mission) : mission.formattedLaunchDate)
                     }
                 }
             }
             .navigationBarTitle("Moonshot")
+            .navigationBarItems(trailing:
+                Button(isShowingCrew ? "Show launch dates" : "Show Crew") {
+                    self.isShowingCrew.toggle()
+                }
+            )
         }
+    }
+
+    func crewMemberNames(forMission mission: Mission) -> String {
+        var matches = [String]()
+        for astronaut in astronauts {
+            if let _ = mission.crew.first(where: { $0.name == astronaut.id }) {
+                matches.append(astronaut.name)
+            }
+        }
+
+        return matches.joined(separator: ", ")
     }
 }
 
