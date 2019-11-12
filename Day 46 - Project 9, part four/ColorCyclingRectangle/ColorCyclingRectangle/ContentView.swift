@@ -44,10 +44,16 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ColorCyclingRectangle(amount: colorCycle)
-                .frame(width: 300, height: 400)
+                .edgesIgnoringSafeArea(.all)
 
-            Slider(value: $colorCycle)
-            .padding()
+            Spacer()
+                .frame(height: 40)
+
+            VStack(spacing: 20) {
+                Text("Cycle color")
+                Slider(value: $colorCycle)
+                    .padding()
+            }
         }
     }
 }
