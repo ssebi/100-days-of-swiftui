@@ -1,4 +1,4 @@
- Day 54 - Bookworm, Part Two
+Day 54 - Bookworm, Part Two
 
 🔗 [HWS Day 54](https://www.hackingwithswift.com/100/swiftui/54)
 
