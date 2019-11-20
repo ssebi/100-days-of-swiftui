@@ -1,4 +1,4 @@
- Day 57 - Core Data, Part One
+Day 57 - Core Data, Part One
 
 🔗 [HWS Day 57](https://www.hackingwithswift.com/100/swiftui/57)
 

@@ -1,4 +1,4 @@
- Day 55 - Bookworm, Part Three
+Day 55 - Bookworm, Part Three
 
 🔗 [HWS Day 55](https://www.hackingwithswift.com/100/swiftui/55)
 

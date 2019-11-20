@@ -1,4 +1,4 @@
- Day 56 - Bookworm, Part Three
+Day 56 - Bookworm, Part Three
 
 🔗 [HWS Day 56](https://www.hackingwithswift.com/100/swiftui/56)
 
