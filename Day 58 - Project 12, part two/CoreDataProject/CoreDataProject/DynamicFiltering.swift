@@ -11,11 +11,11 @@ import SwiftUI
 struct DynamicFiltering: View {
     @Environment(\.managedObjectContext) var moc
     @State var lastNameFilter = "A"
-    @State var sortDescriptors = [NSSortDescriptor(keyPath: \Singer.firstName, ascending: true)]
+    let sortDescriptors = [NSSortDescriptor(keyPath: \Singer.firstName, ascending: true)]
 
     var body: some View {
         VStack {
-            FilteredList(filterKey: "lastName", filterValue: lastNameFilter, sortDescriptors: sortDescriptors) { (singer: Singer) in
+            FilteredList(predicate: "BEGINSWITH", filterKey: "lastName", filterValue: lastNameFilter, sortDescriptors: sortDescriptors) { (singer: Singer) in
                 Text("\(singer.wrappedFirstName) \(singer.wrappedLastname)")
             }
 
