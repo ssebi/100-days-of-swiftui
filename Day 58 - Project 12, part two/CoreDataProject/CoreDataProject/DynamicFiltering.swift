@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+enum Predicates: String {
+    case beginsWith = "BEGINSWITH"
+}
+
 struct DynamicFiltering: View {
     @Environment(\.managedObjectContext) var moc
     @State var lastNameFilter = "A"
@@ -15,7 +19,7 @@ struct DynamicFiltering: View {
 
     var body: some View {
         VStack {
-            FilteredList(predicate: "BEGINSWITH", filterKey: "lastName", filterValue: lastNameFilter, sortDescriptors: sortDescriptors) { (singer: Singer) in
+            FilteredList(predicate: .beginsWith, filterKey: "lastName", filterValue: lastNameFilter, sortDescriptors: sortDescriptors) { (singer: Singer) in
                 Text("\(singer.wrappedFirstName) \(singer.wrappedLastname)")
             }
 
@@ -31,6 +35,18 @@ struct DynamicFiltering: View {
                 let adele = Singer(context: self.moc)
                 adele.firstName = "Adele"
                 adele.lastName = "Adkins"
+
+                let alice = Singer(context: self.moc)
+                alice.firstName = "Alice"
+                alice.lastName = "Smith"
+
+                let bob = Singer(context: self.moc)
+                bob.firstName = "Bob"
+                bob.lastName = "Jones"
+
+                let charlie = Singer(context: self.moc)
+                charlie.firstName = "Charlie"
+                charlie.lastName = "Smith"
 
                 try? self.moc.save()
             }
