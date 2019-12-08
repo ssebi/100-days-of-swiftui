@@ -60,7 +60,7 @@ struct ContentView: View {
                 .padding(.vertical)
 
                 HStack {
-                    Button("Change Filter") {
+                    Button(currentFilter.name.dropFirst(2)) {
                         self.showingFilterSheet = true
                     }
 
