@@ -9,9 +9,20 @@
 import SwiftUI
 import CoreImage.CIFilterBuiltins
 
+class ImageSaver: NSObject {
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
+    }
+
+    @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        print("Save finished!")
+    }
+}
+
 struct ContentView: View {
     @State private var image: Image?
     @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
 
     var body: some View {
         VStack {
@@ -23,32 +34,17 @@ struct ContentView: View {
                 self.showingImagePicker = true
             }
         }
-        .sheet(isPresented: $showingImagePicker) {
-            ImagePicker()
+        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+            ImagePicker(image: self.$inputImage)
         }
     }
 
     func loadImage() {
-        guard let inputImage = UIImage(named: "Example") else { return }
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
 
-        let beginImage = CIImage(image: inputImage)
-
-        let context = CIContext()
-        let currentFilter = CIFilter.crystallize()
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        currentFilter.radius = 50
-
-        // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
-
-        // attempt to get a CGImage from our CIImage
-        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-            // convert that to a UIImage
-            let uiImage = UIImage(cgImage: cgimg)
-
-            // and convert that to a SwiftUI image
-            image = Image(uiImage: uiImage)
-        }
+        let imageSaver = ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: inputImage)
     }
 }
 
