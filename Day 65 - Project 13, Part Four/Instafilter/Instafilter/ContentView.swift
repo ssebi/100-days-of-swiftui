@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var image: Image?
     @State private var filterIntensity = 0.5
 
+    @State private var showingAlert = false
     @State private var showingFilterSheet = false
     @State private var showingImagePicker = false
     @State private var inputImage: UIImage?
@@ -66,7 +67,10 @@ struct ContentView: View {
                     Spacer()
 
                     Button("Save") {
-                        guard let processedImage = self.processedImage else { return }
+                        guard let processedImage = self.processedImage else {
+                            self.showingAlert = true
+                            return
+                        }
 
                         let imageSaver = ImageSaver()
                         imageSaver.successHandler = {
@@ -102,6 +106,9 @@ struct ContentView: View {
                         self.setFilter(CIFilter.vignette()) },
                     .cancel()
                 ])
+            }
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Error"), message: Text("No Image Selected"), dismissButton: .default(Text("OK")))
             }
         }
     }
