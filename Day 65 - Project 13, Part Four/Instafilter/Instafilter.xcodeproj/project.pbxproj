@@ -14,6 +14,7 @@
 		9E39C4C0239D775A00922091 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E39C4BF239D775A00922091 /* Preview Assets.xcassets */; };
 		9E39C4C3239D775A00922091 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E39C4C1239D775A00922091 /* LaunchScreen.storyboard */; };
 		9E39C4CB239D79E300922091 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39C4CA239D79E300922091 /* ImagePicker.swift */; };
+		9E39C4CD239D835800922091 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39C4CC239D835800922091 /* ImageSaver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9E39C4C2239D775A00922091 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E39C4C4239D775A00922091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E39C4CA239D79E300922091 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9E39C4CC239D835800922091 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +44,6 @@
 		9E39C4AA239D775800922091 = {
 			isa = PBXGroup;
 			children = (
-				9E39C4CA239D79E300922091 /* ImagePicker.swift */,
 				9E39C4B5239D775800922091 /* Instafilter */,
 				9E39C4B4239D775800922091 /* Products */,
 			);
@@ -62,6 +63,8 @@
 				9E39C4B6239D775800922091 /* AppDelegate.swift */,
 				9E39C4B8239D775800922091 /* SceneDelegate.swift */,
 				9E39C4BA239D775800922091 /* ContentView.swift */,
+				9E39C4CC239D835800922091 /* ImageSaver.swift */,
+				9E39C4CA239D79E300922091 /* ImagePicker.swift */,
 				9E39C4BC239D775A00922091 /* Assets.xcassets */,
 				9E39C4C1239D775A00922091 /* LaunchScreen.storyboard */,
 				9E39C4C4239D775A00922091 /* Info.plist */,
@@ -151,6 +154,7 @@
 			files = (
 				9E39C4B7239D775800922091 /* AppDelegate.swift in Sources */,
 				9E39C4CB239D79E300922091 /* ImagePicker.swift in Sources */,
+				9E39C4CD239D835800922091 /* ImageSaver.swift in Sources */,
 				9E39C4B9239D775800922091 /* SceneDelegate.swift in Sources */,
 				9E39C4BB239D775800922091 /* ContentView.swift in Sources */,
 			);
