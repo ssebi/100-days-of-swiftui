@@ -1,4 +1,4 @@
-	Day 61 - Milestone: Time for Core Data
+Day 61 - Milestone: Time for Core Data
 
 🔗 [HWS Day 61](https://www.hackingwithswift.com/100/swiftui/61)
 
