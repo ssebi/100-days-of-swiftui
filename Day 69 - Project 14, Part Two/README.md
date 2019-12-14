@@ -28,4 +28,4 @@ which means that we can just write `Context` instead of `UIViewRepresentableCont
 
 # Using Touch ID and Face ID with SwiftUI
 
-- Now we've also seen how easy it is to use TouchID and FaceID for authentication in `SwiftUI`. The only downside is that this is an old Objective C framework and we have to use `NSError` to see the authentication errors which has to be passed with an `&` as an `inout` parameter (not as a two-way binding 😁).
+- Now we've also seen how easy it is to use TouchID and FaceID for authentication in `SwiftUI`. The only downside is that this is an old Objective C framework and we have to use `NSError` to see the authentication errors which has to be passed with an `&` as an `inout` parameter.
