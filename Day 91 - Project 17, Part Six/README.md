@@ -1,6 +1,6 @@
 # Day 91 - Project 17, Part Six
 
-🔗 [HWS Day 91](https://www.hackingwithswift.com/100/swiftui/90)
+🔗 [HWS Day 91](https://www.hackingwithswift.com/100/swiftui/91)
 
 🔗 [Resources] (https://github.com/twostraws/HackingWithSwift)
 
