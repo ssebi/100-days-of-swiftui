@@ -15,20 +15,33 @@ enum FilterType {
 }
 
 struct ProspectsView: View {
+    enum Sorted {
+        case name, mostRecent
+    }
+
     @EnvironmentObject var prospects: Prospects
 
+    @State private var sorted: Sorted = .name
+
     @State private var isShowingScanner = false
+    @State private var isShowingActionSheet = false
 
     let filter: FilterType
 
     var filteredProspects: [Prospect] {
-        switch filter {
-            case .none:
-                return prospects.people
-            case .contacted:
-                return prospects.people.filter { $0.isContacted }
-            case .uncontacted:
-                return prospects.people.filter { !$0.isContacted }
+        switch (filter, sorted) {
+            case (.contacted, .name):
+                return prospects.people.filter { $0.isContacted }.sorted { $0.name < $1.name }
+            case (.uncontacted, .name):
+                return prospects.people.filter { !$0.isContacted }.sorted { $0.name < $1.name }
+            case (.contacted, .mostRecent):
+                return prospects.people.filter { $0.isContacted }.sorted { $0.createdAt < $1.createdAt }
+            case (.uncontacted, .mostRecent):
+                return prospects.people.filter { !$0.isContacted }.sorted { $0.createdAt < $1.createdAt }
+            case (.none, .name):
+                return prospects.people.sorted { $0.name < $1.name }
+            case (.none, .mostRecent):
+                return prospects.people.sorted { $0.createdAt < $1.createdAt }
         }
     }
 
@@ -82,15 +95,35 @@ struct ProspectsView: View {
                 }
             }
             .navigationBarTitle(title)
-            .navigationBarItems(trailing: Button(action: {
-                self.isShowingScanner = true
-            }) {
-                Image(systemName: "qrcode.viewfinder")
-                Text("Scan")
-            })
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.isShowingActionSheet = true
+                }) {
+                    Image(systemName: "arrow.up.arrow.down")
+                    Text("Sort")
+                },
+                trailing: Button(action: {
+                    self.isShowingScanner = true
+                }) {
+                    Image(systemName: "qrcode.viewfinder")
+                    Text("Scan")
+                })
         }
         .sheet(isPresented: $isShowingScanner) {
             CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan)
+        }
+        .actionSheet(isPresented: $isShowingActionSheet) {
+            ActionSheet(title: Text("Sorted by"),
+                        message: nil,
+                        buttons: [
+                            .default(Text("Name")) {
+                                self.sorted = .name
+                            },
+                            .default(Text("Most Recent")) {
+                                self.sorted = .mostRecent
+                            },
+                            .cancel()]
+            )
         }
     }
 
@@ -106,7 +139,7 @@ struct ProspectsView: View {
                 person.emailAddress = details[1]
 
                 self.prospects.add(person)
-            case .failure(let error):
+            case .failure:
                 print("Scanning failed")
         }
     }
