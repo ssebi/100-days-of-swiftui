@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var selectedPlace: MKPointAnnotation?
     @State private var locations = [CodableMKPointAnnotation]()
     @State private var showingPlaceDetails = false
+    @State private var showingAuthenticationAlert = false
+    @State private var noBiometrics = false
     @State private var showingEditScreen = false
     @State private var isUnlocked = false
 
@@ -24,6 +26,12 @@ struct ContentView: View {
                          locations: $locations,
                          showingPlaceDetails: $showingPlaceDetails,
                          showingEditScreen: $showingEditScreen)
+                    .alert(isPresented: $showingPlaceDetails) {
+                        Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information"), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Edit")) {
+                                self.showingEditScreen = true
+                            }
+                        )
+                    }
             } else {
                 Button("Unlock Places") {
                     self.authenticate()
@@ -32,13 +40,13 @@ struct ContentView: View {
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .clipShape(Capsule())
-            }
-        }
-        .alert(isPresented: $showingPlaceDetails) {
-            Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information"), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Edit")) {
-                self.showingEditScreen = true
+                .alert(isPresented: $showingAuthenticationAlert) {
+                    Alert(title: Text(noBiometrics ? "Sorry" : "Unauthorized"), message: Text(noBiometrics ? "Your device doesn't support biometrics" : "You are not authorized to view the places"), dismissButton: .default(Text("OK")) {
+                            self.noBiometrics = false
+                        }
+                    )
                 }
-            )
+            }
         }
         .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
             if self.selectedPlace != nil {
@@ -87,12 +95,13 @@ struct ContentView: View {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        self.showingAuthenticationAlert = true
                     }
                 }
             }
         } else {
-            // no biometrics
+            self.showingAuthenticationAlert = true
+            self.noBiometrics = true
         }
     }
 }
