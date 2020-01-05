@@ -72,14 +72,16 @@ struct ProspectsView: View {
 
                         Spacer()
 
-                        if prospect.isContacted {
-                            Image(systemName: "person.crop.circle.fill.badge.checkmark")
-                                .font(.title)
-                                .foregroundColor(.green)
-                        } else {
-                            Image(systemName: "person.crop.circle.fill.badge.xmark")
-                                .font(.title)
-                                .foregroundColor(.red)
+                        if self.filter == .none {
+                            if prospect.isContacted {
+                                Image(systemName: "person.crop.circle.fill.badge.checkmark")
+                                    .font(.title)
+                                    .foregroundColor(.green)
+                            } else {
+                                Image(systemName: "person.crop.circle.fill.badge.xmark")
+                                    .font(.title)
+                                    .foregroundColor(.red)
+                            }
                         }
                     }
                     .contextMenu {
