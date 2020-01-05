@@ -11,9 +11,8 @@ import MapKit
 import LocalAuthentication
 
 struct ContentView: View {
-    @State private var centerCoordinate = CLLocationCoordinate2D()
-    @State private var locations = [CodableMKPointAnnotation]()
     @State private var selectedPlace: MKPointAnnotation?
+    @State private var locations = [CodableMKPointAnnotation]()
     @State private var showingPlaceDetails = false
     @State private var showingEditScreen = false
     @State private var isUnlocked = false
@@ -21,37 +20,10 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             if isUnlocked {
-                MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
-                    .edgesIgnoringSafeArea(.all)
-
-                Circle()
-                    .fill(Color.blue)
-                    .opacity(0.3)
-                    .frame(width: 32, height: 32)
-
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            let newLocation = CodableMKPointAnnotation()
-                            newLocation.title = "Example Location"
-                            newLocation.coordinate = self.centerCoordinate
-                            self.locations.append(newLocation)
-
-                            self.selectedPlace = newLocation
-                            self.showingEditScreen = true
-                        }) {
-                            Image(systemName: "plus")
-                                .padding()
-                                .background(Color.black.opacity(0.75))
-                                .foregroundColor(.white)
-                                .font(.title)
-                                .clipShape(Circle())
-                                .padding(.trailing)
-                        }
-                    }
-                }
+                MainView(selectedPlace: $selectedPlace,
+                         locations: $locations,
+                         showingPlaceDetails: $showingPlaceDetails,
+                         showingEditScreen: $showingEditScreen)
             } else {
                 Button("Unlock Places") {
                     self.authenticate()
@@ -76,12 +48,12 @@ struct ContentView: View {
         .onAppear(perform: loadData)
     }
 
-    func getDocumentsDirectory() -> URL {
+    private func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
 
-    func loadData() {
+    private func loadData() {
         let filename = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
 
         do {
@@ -92,7 +64,7 @@ struct ContentView: View {
         }
     }
 
-    func saveData() {
+    private func saveData() {
         do {
             let filename = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
             let data = try JSONEncoder().encode(self.locations)
@@ -102,7 +74,7 @@ struct ContentView: View {
         }
     }
 
-    func authenticate() {
+    private func authenticate() {
         let context = LAContext()
         var error: NSError?
 

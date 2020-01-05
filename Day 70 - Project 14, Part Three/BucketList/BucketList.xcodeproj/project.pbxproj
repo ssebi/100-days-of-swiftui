@@ -18,6 +18,7 @@
 		9E2902DE23A52F99000809E2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2902DA23A52C97000809E2 /* Result.swift */; };
 		9E2902DF23A52F99000809E2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2902D423A51082000809E2 /* MapView.swift */; };
 		9E2902E123A69786000809E2 /* MKPointAnnotation-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2902E023A69786000809E2 /* MKPointAnnotation-Codable.swift */; };
+		9ECAB83423C220ED00CFA88A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAB83323C220ED00CFA88A /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9E2902D823A5290B000809E2 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		9E2902DA23A52C97000809E2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		9E2902E023A69786000809E2 /* MKPointAnnotation-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-Codable.swift"; sourceTree = "<group>"; };
+		9ECAB83323C220ED00CFA88A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				9E2902C023A5105C000809E2 /* AppDelegate.swift */,
 				9E2902C223A5105C000809E2 /* SceneDelegate.swift */,
 				9E2902D823A5290B000809E2 /* EditView.swift */,
+				9ECAB83323C220ED00CFA88A /* MainView.swift */,
 				9E2902C423A5105C000809E2 /* ContentView.swift */,
 				9E2902C623A5105E000809E2 /* Assets.xcassets */,
 				9E2902CB23A5105E000809E2 /* LaunchScreen.storyboard */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E2902DF23A52F99000809E2 /* MapView.swift in Sources */,
+				9ECAB83423C220ED00CFA88A /* MainView.swift in Sources */,
 				9E2902DE23A52F99000809E2 /* Result.swift in Sources */,
 				9E2902C123A5105C000809E2 /* AppDelegate.swift in Sources */,
 				9E2902DD23A52F99000809E2 /* EditView.swift in Sources */,
