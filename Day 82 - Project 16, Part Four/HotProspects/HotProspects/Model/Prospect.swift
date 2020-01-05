@@ -21,7 +21,7 @@ class Prospects: ObservableObject {
     @Published private(set) var people: [Prospect]
 
     init() {
-        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
+        if let data = Self.readData(fromFile: Self.saveKey) {
             if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
                 self.people = decoded
                 return
@@ -39,12 +39,43 @@ class Prospects: ObservableObject {
 
     private func save() {
         if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+            write(encoded, toFile: Self.saveKey)
         }
     }
 
     func add(_ prospect: Prospect) {
         people.append(prospect)
         save()
+    }
+
+    private func write(_ data: Data, toFile file: String) {
+        let url = Self.getDocumentsDirectory().appendingPathComponent(file)
+
+        do {
+            try data.write(to: url, options: .atomic)
+        } catch {
+            print(error)
+        }
+    }
+
+    private static func readData(fromFile file: String) -> Data? {
+        let url = Self.getDocumentsDirectory().appendingPathComponent(file)
+
+        var data: Data?
+        do {
+            try data = Data(contentsOf: url)
+        } catch {
+            print(error)
+        }
+
+        return data
+    }
+
+    private static func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
     }
 }
