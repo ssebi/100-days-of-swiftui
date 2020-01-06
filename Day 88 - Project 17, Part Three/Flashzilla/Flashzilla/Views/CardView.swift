@@ -13,10 +13,20 @@ struct CardView: View {
     @Environment(\.accessibilityEnabled) var accessibilityEnabled
 
     @State private var isShowingAnswer = false
-    @State private var offset = CGSize.zero
+    @State private var offsetWidth: CGFloat = 0
     @State private var feedback = UINotificationFeedbackGenerator()
 
     let card: Card
+
+    private var color: Color {
+        if offsetWidth > 0 {
+            return Color.green
+        } else if offsetWidth == 0 {
+            return Color.white
+        } else {
+            return Color.red
+        }
+    }
 
     var removal: ((Bool) -> Void)? = nil
 
@@ -27,14 +37,14 @@ struct CardView: View {
                     differentiateWithoutColor
                         ? Color.white
                         : Color.white
-                            .opacity(1 - Double(abs(offset.width / 50)))
+                            .opacity(1 - Double(abs(offsetWidth / 50)))
 
                 )
                 .background(
                     differentiateWithoutColor
                         ? nil
                         : RoundedRectangle(cornerRadius: 25, style: .continuous)
-                            .fill(offset.width > 0 ? Color.green : Color.red)
+                            .fill(color)
                 )
                 .shadow(radius: 10)
 
@@ -57,9 +67,9 @@ struct CardView: View {
             .multilineTextAlignment(.center)
         }
         .frame(width: 450, height: 250)
-        .rotationEffect(.degrees(Double(offset.width / 5)))
-        .offset(x: offset.width * 5, y: 0)
-        .opacity(2 - Double(abs(offset.width / 50)))
+        .rotationEffect(.degrees(Double(offsetWidth / 5)))
+        .offset(x: offsetWidth * 5, y: 0)
+        .opacity(2 - Double(abs(offsetWidth / 50)))
         .accessibility(addTraits: .isButton)
         .onTapGesture {
             self.isShowingAnswer.toggle()
@@ -68,22 +78,21 @@ struct CardView: View {
         .gesture(
             DragGesture()
                 .onChanged { offset in
-                    self.offset = offset.translation
+                    self.offsetWidth = offset.translation.width
                     self.feedback.prepare()
             }
 
             .onEnded { _ in
-                if abs(self.offset.width) > 100 {
-                    if self.offset.width > 0 {
+                if abs(self.offsetWidth) > 100 {
+                    if self.offsetWidth > 0 {
                         self.feedback.notificationOccurred(.success)
                         self.removal?(true)
                     } else {
                         self.feedback.notificationOccurred(.error)
                         self.removal?(false)
                     }
-
                 } else {
-                    self.offset = .zero
+                    self.offsetWidth = .zero
                 }
             }
         )
