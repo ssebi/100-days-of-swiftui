@@ -19,28 +19,37 @@ struct ContentView: View {
 
     @State private var score = 0
     @State private var extraPointsForUsedWordsCount = 0
-
+    var usedWordsEnumerated: [(offset: Int, element: String)] {
+        usedWords.enumerated().map { $0 }
+    }
     var body: some View {
         NavigationView {
-            VStack {
-                TextField("Enter your word", text: $newWord, onCommit: addNewWord)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                    .autocapitalization(.none)
+            GeometryReader { fullView in
+                VStack {
+                    TextField("Enter your word", text: self.$newWord, onCommit: self.addNewWord)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                        .autocapitalization(.none)
 
-                List(usedWords, id: \.self) { word in
-                    HStack {
-                        Image(systemName: "\(word.count).circle")
-                        Text(word)
+                    List(self.usedWordsEnumerated, id: \.element) { (index, word) in
+                        GeometryReader { geo in
+                            HStack {
+                                Image(systemName: "\(word.count).circle")
+                                Text(word)
+                            }
+                            .alignmentGuide(.leading, computeValue: { _ in return 0 })
+                            .accessibilityElement(children: .ignore)
+                            .accessibility(label: Text("\(word), \(word.count) letters"))
+                            .frame(width: fullView.size.width)
+                            .transformEffect(geo.frame(in: .global).minY > fullView.size.height / 1.05 ? .init(translationX: geo.frame(in: .global).minY - fullView.size.width / 0.6, y: 0) : .init(translationX: 0, y: 0))
+                        }
                     }
-                    .accessibilityElement(children: .ignore)
-                    .accessibility(label: Text("\(word), \(word.count) letters"))
-                }
 
-                Text("Your score is \(score + extraPointsForUsedWordsCount)")
+                    Text("Your score is \(self.score + self.extraPointsForUsedWordsCount)")
+                }
+                .navigationBarItems(leading: Button("Reset", action: self.startGame))
+                .navigationBarTitle(self.rootWord)
             }
-            .navigationBarItems(leading: Button("Reset", action: startGame))
-            .navigationBarTitle(rootWord)
         }
         .onAppear(perform: startGame)
         .alert(isPresented: $showingError) {
