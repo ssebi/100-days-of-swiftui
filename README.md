@@ -159,3 +159,9 @@ Rules are simple:
 <img src="./Day%2030%20-%20Project%205,%20part%20two/Assets/WordScramble-recording.gif" width="300px"/>
 
 <br/>
+
+- [Project 6: Animations](./Day%2033%20-%20Project%206,%20part%20two/Animations/)
+
+<img src="./Day%2033%20-%20Project%206,%20part%20two/Assets/Animations-recording.gif" width="300px"/>
+
+<br/>
