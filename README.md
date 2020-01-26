@@ -183,3 +183,9 @@ Rules are simple:
 <img src="./Day%2041%20-%20Project%208,%20part%20three/Assets/Moonshot-recording.gif" width="300px"/>
 
 <br/>
+
+- [Project 9: Drawing](./Day%2045%20-%20Project%209,%20part%20three/Drawing/)
+
+<img src="./Day%2045%20-%20Project%209,%20part%20three/Assets/Drawing-recording.gif" width="300px"/>
+
+<br/>
