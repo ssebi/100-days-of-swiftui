@@ -165,3 +165,7 @@ Rules are simple:
 <img src="./Day%2033%20-%20Project%206,%20part%20two/Assets/Animations-recording.gif" width="300px"/>
 
 <br/>
+
+- [Milestone Project 2: WeMultiply](./Day%2035%20-%20Milestone,%20projects%204-6/WeMultiply/)
+
+<img src="./Day%2035%20-%20Milestone,%20projects%204-6/Assets/WeMultiply-recording.gif" width="300px"/>

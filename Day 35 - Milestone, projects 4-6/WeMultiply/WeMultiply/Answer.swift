@@ -70,8 +70,9 @@ class Answer: ObservableObject {
                 }
             }
         } else {
-            for _ in 0..<numberOfQuestions.count {
-                questions.append(Question(firstNumber: possibleValues[selectedMultiplicationTable], secondNumber: randomSecondTableElement))
+            for _ in 0...numberOfQuestions.count {
+                questions.append(Question(firstNumber: possibleValues[selectedMultiplicationTable],
+                                          secondNumber: randomSecondTableElement))
             }
         }
 
@@ -105,7 +106,7 @@ class Answer: ObservableObject {
     private func resetGame() {
         correctAnswersCount = 0
         currentQuestion = 0
-        questions.removeAll()
+        questions = generateQuestions()
         isShowing.toggle()
     }
 }
