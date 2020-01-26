@@ -141,3 +141,9 @@ Rules are simple:
 <img src="./Day%2024%20-%20Project%203,%20part%20two/Assets/ViewAndModifiers-screenshot.jpg" width="300px"/>
 
 <br/>
+
+- [Milestone Project 1: RockPaperQuizzers](./Day%2025%20-%20Milestone,%20projects%201-3/WeRock/)
+
+<img src="./Day%2025%20-%20Milestone,%20projects%201-3/Assets/WeRock-recording.gif" width="300px"/>
+
+<br/>
