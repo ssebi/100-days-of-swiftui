@@ -177,3 +177,9 @@ Rules are simple:
 <img src="./Day%2037%20-%20Project%207,%20part%20two/Assets/iExpense-recording.gif" width="300px"/>
 
 <br/>
+
+- [Project 8: Moonshot](./Day%2041%20-%20Project%208,%20part%20three/Moonshot/)
+
+<img src="./Day%2041%20-%20Project%208,%20part%20three/Assets/Moonshot-recording.gif" width="300px"/>
+
+<br/>
