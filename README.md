@@ -136,9 +136,9 @@ Rules are simple:
 
 <br/>
 
-- [Project 3: ViewAndModifiers](./Day%2024%20-%20Project%203,%20part%20two/ViewsAndModifiers)
+- [Project 3: ViewAndModifiers](./Day%2024%20-%20Project%203,%20part%20one/ViewsAndModifiers)
 
-<img src="./Day%2024%20-%20Project%203,%20part%20two/Assets/ViewAndModifiers-screenshot.jpg" width="300px"/>
+<img src="./Day%2024%20-%20Project%203,%20part%20one/Assets/ViewAndModifiers-screenshot.jpg" width="300px"/>
 
 <br/>
 
@@ -151,5 +151,11 @@ Rules are simple:
 - [Project 4: BetterRest](./Day%2027%20-%20Project%204,%20part%20two/BetterRest/)
 
 <img src="./Day%2027%20-%20Project%204,%20part%20two/Assets/BetterRest-recording.gif" width="300px"/>
+
+<br/>
+
+- [Project 5: WordScramble](./Day%2030%20-%20Project%205,%20part%20two/WordScramble/)
+
+<img src="./Day%2030%20-%20Project%205,%20part%20two/Assets/WordScramble-recording.gif" width="300px"/>
 
 <br/>
