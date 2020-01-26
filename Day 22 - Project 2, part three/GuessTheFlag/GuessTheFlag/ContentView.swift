@@ -47,6 +47,7 @@ struct ContentView: View {
                         .font(.largeTitle)
                         .fontWeight(.black)
                 }
+                .frame(maxWidth: .infinity)
 
                 ForEach(0 ..< 3) { number in
                     Button(action: {

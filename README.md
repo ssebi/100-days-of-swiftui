@@ -124,6 +124,12 @@ Rules are simple:
 
 <br/>
 
-- [Challenge 1: Unit Conversion App](./Day%2019%20-%20Challenge/)
+- [Challenge 1: Unit Conversion App](./Day%2019%20-%20Challenge/WeConvert/)
 
 <img src="./Day%2019%20-%20Challenge/Assets/WeConvert-recording.gif" width="300px"/>
+
+<br/>
+
+- [Project 2: GuessTheFlag](./Day%2022%20-%20Project%202,%20part%20three/GuessTheFlag/)
+
+<img src="./Day%2022%20-%20Project%202,%20part%20three/Assets/GuessTheFlag-recording.gif" width="300px"/>
