@@ -24,7 +24,7 @@ Rules are simple:
 > 1. Every day you spend one hour reading or watching SwiftUI tutorials, or writing SwiftUI code.
 > 2. Every day you post about your progress to the social media site of your choosing. Tell people!
 
-## Days
+# Days
 
 <details>
 <summary>Complete List of Days</summary>
@@ -116,8 +116,14 @@ Rules are simple:
 
 </details>
 
+# Projects
+
 - [Project 1: WeSplit](./Day%2018%20-%20Project%201%2C%20part%20three/WeSplit)
 
-<div style="text-align: center;">
-  <img src="./Day%2018%20-%20Project%201%2C%20part%20three/Assets/WeSplit-recording.gif" width="300px"/>
-</div>
+<img src="./Day%2018%20-%20Project%201%2C%20part%20three/Assets/WeSplit-recording.gif" width="300px"/>
+
+<br/>
+
+- [Challenge 1: Unit Conversion App](./Day%2019%20-%20Challenge/)
+
+<img src="./Day%2019%20-%20Challenge/Assets/WeConvert-recording.gif" width="300px"/>
