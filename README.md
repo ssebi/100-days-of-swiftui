@@ -124,7 +124,7 @@ Rules are simple:
 
 <br/>
 
-- [Challenge 1: Unit Conversion App](./Day%2019%20-%20Challenge/WeConvert/)
+- [Challenge 1: WeConvert](./Day%2019%20-%20Challenge/WeConvert/)
 
 <img src="./Day%2019%20-%20Challenge/Assets/WeConvert-recording.gif" width="300px"/>
 
@@ -142,8 +142,14 @@ Rules are simple:
 
 <br/>
 
-- [Milestone Project 1: RockPaperQuizzers](./Day%2025%20-%20Milestone,%20projects%201-3/WeRock/)
+- [Milestone Project 1: WeRock](./Day%2025%20-%20Milestone,%20projects%201-3/WeRock/)
 
 <img src="./Day%2025%20-%20Milestone,%20projects%201-3/Assets/WeRock-recording.gif" width="300px"/>
+
+<br/>
+
+- [Project 4: BetterRest](./Day%2027%20-%20Project%204,%20part%20two/BetterRest/)
+
+<img src="./Day%2027%20-%20Project%204,%20part%20two/Assets/BetterRest-recording.gif" width="300px"/>
 
 <br/>
