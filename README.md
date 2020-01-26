@@ -133,3 +133,11 @@ Rules are simple:
 - [Project 2: GuessTheFlag](./Day%2022%20-%20Project%202,%20part%20three/GuessTheFlag/)
 
 <img src="./Day%2022%20-%20Project%202,%20part%20three/Assets/GuessTheFlag-recording.gif" width="300px"/>
+
+<br/>
+
+- [Project 3: ViewAndModifiers](./Day%2024%20-%20Project%203,%20part%20two/ViewsAndModifiers)
+
+<img src="./Day%2024%20-%20Project%203,%20part%20two/Assets/ViewAndModifiers-screenshot.jpg" width="300px"/>
+
+<br/>
