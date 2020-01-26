@@ -189,3 +189,9 @@ Rules are simple:
 <img src="./Day%2045%20-%20Project%209,%20part%20three/Assets/Drawing-recording.gif" width="300px"/>
 
 <br/>
+
+- [Milestone Project 3: WeTrack](./Day%2047%20-%20Milestone,%20Projects%207-9/WeTrack/)
+
+<img src="./Day%2047%20-%20Milestone,%20Projects%207-9/Assets/WeTrack-recording.gif" width="300px"/>
+
+<br/>
