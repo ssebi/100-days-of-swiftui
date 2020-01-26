@@ -195,3 +195,9 @@ Rules are simple:
 <img src="./Day%2047%20-%20Milestone,%20Projects%207-9/Assets/WeTrack-recording.gif" width="300px"/>
 
 <br/>
+
+- [Project 10: CupcakeCorner](./Day%2050%20-%20Project%2010,%20part%20two/CupcakeCorner/)
+
+<img src="./Day%2050%20-%20Project%2010,%20part%20two/Assets/CupcakeCorner-recording.gif" width="300px"/>
+
+<br/>
