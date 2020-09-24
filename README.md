@@ -180,7 +180,7 @@ Rules are simple:
 
 - [Project 8: Moonshot](./Day%2041%20-%20Project%208,%20part%20three/Moonshot/)
 
-<img src="./Day%2041%20-%20Project%208,%20part%20three/Assets/Moonshot-recording.gif" width="300px"/>
+<img src="./Day%2040%20-%20Project%208%2C%20part%20three/Assets/Moonshot-recording.gif" width="300px"/>
 
 <br/>
 
