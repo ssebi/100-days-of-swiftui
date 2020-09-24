@@ -138,7 +138,7 @@ Rules are simple:
 
 - [Project 3: ViewAndModifiers](./Day%2024%20-%20Project%203,%20part%20one/ViewsAndModifiers)
 
-<img src="./Day%2024%20-%20Project%203,%20part%20one/Assets/ViewAndModifiers-screenshot.jpg" width="300px"/>
+<img src="./Day 24 - Project 3, part one/Assets/ViewAndModifiers-screenshot.jpg" width="300px"/>
 
 <br/>
 
